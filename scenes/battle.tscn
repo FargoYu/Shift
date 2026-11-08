@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/battle.gd" id="10_battle"]
+[ext_resource type="Texture2D" path="res://assets/character_related/player/sword_attack.png" id="1_player"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/sword_attack.png" id="2_boss"]
+[ext_resource type="Texture2D" path="res://assets/character_related/player/healthbar_background.png" id="3_player_health"]
+[ext_resource type="Texture2D" path="res://assets/character_related/player/healthbar_fill.png" id="4_player_fill"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/healthbar_background.png" id="5_boss_health"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/healthbar_fill.png" id="6_boss_fill"]
+[ext_resource type="Texture2D" path="res://assets/ui/countdown_digits.png" id="7_digits"]
+[ext_resource type="Texture2D" path="res://assets/ui/timeline_bar.png" id="8_timeline"]
+[ext_resource type="Texture2D" path="res://assets/ui/timeline_cursor.png" id="9_cursor"]
+
+[node name="Battle" type="Node2D"]
+texture_filter = 1
+script = ExtResource("10_battle")
+
+[node name="PlayerHealth" type="Sprite2D" parent="."]
+position = Vector2(10, 16)
+texture = ExtResource("3_player_health")
+centered = false
+
+[node name="Fill" type="Sprite2D" parent="PlayerHealth"]
+position = Vector2(7, 2)
+texture = ExtResource("4_player_fill")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 1)
+
+[node name="BossHealth" type="Sprite2D" parent="."]
+position = Vector2(46, 16)
+texture = ExtResource("5_boss_health")
+centered = false
+
+[node name="Fill" type="Sprite2D" parent="BossHealth"]
+position = Vector2(7, 2)
+texture = ExtResource("6_boss_fill")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 1)
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(18, 24)
+texture = ExtResource("1_player")
+centered = false
+
+[node name="Boss" type="Sprite2D" parent="."]
+position = Vector2(53, 24)
+texture = ExtResource("2_boss")
+centered = false
+flip_h = true
+
+[node name="Countdown" type="Sprite2D" parent="."]
+position = Vector2(39, 29)
+texture = ExtResource("7_digits")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 3, 5)
+
+[node name="Timeline" type="Sprite2D" parent="."]
+position = Vector2(18, 45)
+texture = ExtResource("8_timeline")
+centered = false
+
+[node name="Cursor" type="Sprite2D" parent="Timeline"]
+position = Vector2(1, -2)
+texture = ExtResource("9_cursor")
+centered = false
+
+[node name="SecondTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SecondTimer" to="." method="_on_second_elapsed"]
