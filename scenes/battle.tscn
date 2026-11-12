@@ -1,72 +1,113 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Script" path="res://scripts/battle.gd" id="10_battle"]
-[ext_resource type="Texture2D" path="res://assets/character_related/player/sword_attack.png" id="1_player"]
-[ext_resource type="Texture2D" path="res://assets/character_related/boss/sword_attack.png" id="2_boss"]
-[ext_resource type="Texture2D" path="res://assets/character_related/player/healthbar_background.png" id="3_player_health"]
-[ext_resource type="Texture2D" path="res://assets/character_related/player/healthbar_fill.png" id="4_player_fill"]
-[ext_resource type="Texture2D" path="res://assets/character_related/boss/healthbar_background.png" id="5_boss_health"]
-[ext_resource type="Texture2D" path="res://assets/character_related/boss/healthbar_fill.png" id="6_boss_fill"]
-[ext_resource type="Texture2D" path="res://assets/ui/countdown_digits.png" id="7_digits"]
+[ext_resource type="Script" path="res://scripts/battle.gd" id="1_battle"]
+[ext_resource type="SpriteFrames" path="res://assets/character_related/player/sprite_frames.tres" id="2_player"]
+[ext_resource type="SpriteFrames" path="res://assets/character_related/boss/sprite_frames.tres" id="3_boss"]
+[ext_resource type="Texture2D" path="res://assets/ui/healthbars/player/healthbar_background.png" id="4_player_health"]
+[ext_resource type="Texture2D" path="res://assets/ui/healthbars/player/healthbar_fill.png" id="5_player_fill"]
+[ext_resource type="Texture2D" path="res://assets/ui/healthbars/boss/healthbar_background.png" id="6_boss_health"]
+[ext_resource type="Texture2D" path="res://assets/ui/healthbars/boss/healthbar_fill.png" id="7_boss_fill"]
 [ext_resource type="Texture2D" path="res://assets/ui/timeline_bar.png" id="8_timeline"]
 [ext_resource type="Texture2D" path="res://assets/ui/timeline_cursor.png" id="9_cursor"]
+[ext_resource type="FontFile" path="res://assets/fonts/monogram.ttf" id="10_font"]
+[ext_resource type="AudioStream" path="res://assets/music/boss/SLUNGUS ENGAGE (REMASTERED).mp3" id="11_music"]
 
 [node name="Battle" type="Node2D"]
 texture_filter = 1
-script = ExtResource("10_battle")
+script = ExtResource("1_battle")
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+position = Vector2(42, 38)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_player")
+animation = &"unarmed_idle"
+autoplay = "unarmed_idle"
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+position = Vector2(118, 38)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_boss")
+animation = &"unarmed_idle"
+autoplay = "unarmed_idle"
+flip_h = true
 
 [node name="PlayerHealth" type="Sprite2D" parent="."]
-position = Vector2(10, 16)
-texture = ExtResource("3_player_health")
+visible = false
+position = Vector2(20, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("4_player_health")
 centered = false
 
 [node name="Fill" type="Sprite2D" parent="PlayerHealth"]
 position = Vector2(7, 2)
-texture = ExtResource("4_player_fill")
+texture = ExtResource("5_player_fill")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 14, 1)
 
 [node name="BossHealth" type="Sprite2D" parent="."]
-position = Vector2(46, 16)
-texture = ExtResource("5_boss_health")
+visible = false
+position = Vector2(96, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("6_boss_health")
 centered = false
 
 [node name="Fill" type="Sprite2D" parent="BossHealth"]
 position = Vector2(7, 2)
-texture = ExtResource("6_boss_fill")
+texture = ExtResource("7_boss_fill")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 14, 1)
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(18, 24)
-texture = ExtResource("1_player")
-centered = false
-
-[node name="Boss" type="Sprite2D" parent="."]
-position = Vector2(53, 24)
-texture = ExtResource("2_boss")
-centered = false
-flip_h = true
-
-[node name="Countdown" type="Sprite2D" parent="."]
-position = Vector2(39, 29)
-texture = ExtResource("7_digits")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 3, 5)
-
 [node name="Timeline" type="Sprite2D" parent="."]
-position = Vector2(18, 45)
+visible = false
+position = Vector2(62, 92)
+scale = Vector2(2, 2)
 texture = ExtResource("8_timeline")
 centered = false
 
 [node name="Cursor" type="Sprite2D" parent="Timeline"]
+visible = false
 position = Vector2(1, -2)
 texture = ExtResource("9_cursor")
 centered = false
 
-[node name="SecondTimer" type="Timer" parent="."]
+[node name="StartPrompt" type="Label" parent="."]
+offset_top = 78.0
+offset_right = 160.0
+offset_bottom = 94.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.12, 0.16, 0.19, 1)
+theme_override_fonts/font = ExtResource("10_font")
+theme_override_font_sizes/font_size = 16
+text = "Press Shift to Start"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="timeout" from="SecondTimer" to="." method="_on_second_elapsed"]
+[node name="Feedback" type="Label" parent="."]
+visible = false
+offset_top = 104.0
+offset_right = 160.0
+offset_bottom = 120.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.12, 0.16, 0.19, 1)
+theme_override_fonts/font = ExtResource("10_font")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Result" type="Label" parent="."]
+visible = false
+offset_top = 0.0
+offset_right = 160.0
+offset_bottom = 16.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.12, 0.16, 0.19, 1)
+theme_override_fonts/font = ExtResource("10_font")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_music")
+volume_db = -6.0

@@ -1,0 +1,196 @@
+[gd_resource type="SpriteFrames" load_steps=29 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/shield/shield_block.png" id="1"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/shield/shield_idle.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/sword/sword_attack.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/sword/sword_idle.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/character_related/boss/unarmed_idle.png" id="5"]
+
+[sub_resource type="AtlasTexture" id="shield_block_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_block_1"]
+atlas = ExtResource("1")
+region = Rect2(56, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_block_2"]
+atlas = ExtResource("1")
+region = Rect2(112, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_block_3"]
+atlas = ExtResource("1")
+region = Rect2(168, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_idle_0"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_idle_1"]
+atlas = ExtResource("2")
+region = Rect2(56, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_idle_2"]
+atlas = ExtResource("2")
+region = Rect2(112, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="shield_idle_3"]
+atlas = ExtResource("2")
+region = Rect2(168, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_attack_0"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_attack_1"]
+atlas = ExtResource("3")
+region = Rect2(56, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_attack_2"]
+atlas = ExtResource("3")
+region = Rect2(112, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_attack_3"]
+atlas = ExtResource("3")
+region = Rect2(168, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_attack_4"]
+atlas = ExtResource("3")
+region = Rect2(224, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_idle_0"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_idle_1"]
+atlas = ExtResource("4")
+region = Rect2(56, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_idle_2"]
+atlas = ExtResource("4")
+region = Rect2(112, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_idle_3"]
+atlas = ExtResource("4")
+region = Rect2(168, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="sword_idle_4"]
+atlas = ExtResource("4")
+region = Rect2(224, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="unarmed_idle_0"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="unarmed_idle_1"]
+atlas = ExtResource("5")
+region = Rect2(56, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="unarmed_idle_2"]
+atlas = ExtResource("5")
+region = Rect2(112, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="unarmed_idle_3"]
+atlas = ExtResource("5")
+region = Rect2(168, 0, 56, 40)
+
+[sub_resource type="AtlasTexture" id="unarmed_idle_4"]
+atlas = ExtResource("5")
+region = Rect2(224, 0, 56, 40)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("shield_block_0")
+}, {
+"duration": 2.0,
+"texture": SubResource("shield_block_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("shield_block_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("shield_block_3")
+}],
+"loop": false,
+"name": &"shield_block",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("shield_idle_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("shield_idle_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("shield_idle_2")
+}, {
+"duration": 2.0,
+"texture": SubResource("shield_idle_3")
+}],
+"loop": true,
+"name": &"shield_idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("sword_attack_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_attack_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_attack_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_attack_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_attack_4")
+}],
+"loop": false,
+"name": &"sword_attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("sword_idle_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_idle_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_idle_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_idle_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("sword_idle_4")
+}],
+"loop": true,
+"name": &"sword_idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("unarmed_idle_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("unarmed_idle_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("unarmed_idle_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("unarmed_idle_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("unarmed_idle_4")
+}],
+"loop": true,
+"name": &"unarmed_idle",
+"speed": 10.0
+}]

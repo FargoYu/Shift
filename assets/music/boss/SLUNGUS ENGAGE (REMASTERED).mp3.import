@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhphex1j3sjty"
+path="res://.godot/imported/SLUNGUS ENGAGE (REMASTERED).mp3-3aa3f905a345640501babc437744c526.mp3str"
+
+[deps]
+
+source_file="res://assets/music/boss/SLUNGUS ENGAGE (REMASTERED).mp3"
+dest_files=["res://.godot/imported/SLUNGUS ENGAGE (REMASTERED).mp3-3aa3f905a345640501babc437744c526.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
